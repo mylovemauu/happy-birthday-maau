@@ -1744,5 +1744,156 @@ body {
 
     }
 
+    
+}
+/* =========================================
+   BALLOON SCREEN
+========================================= */
+
+.balloons-screen {
+    min-height: 100vh;
+    width: 100%;
+    
+    background:
+        radial-gradient(
+            circle at top,
+            #fff0f6 0%,
+            #ffe4ef 40%,
+            #ffd6e7 100%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   BALLOON CONTENT
+========================================= */
+
+.balloon-content {
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: transparent;
+}
+
+
+/* =========================================
+   BALLOON COMPLETION CARD
+========================================= */
+
+.balloon-complete {
+    width: min(90%, 500px);
+
+    padding: 40px 30px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    box-shadow:
+        0 20px 60px rgba(180, 70, 120, 0.20);
+
+    text-align: center;
+
+    animation: celebrateCard 0.8s ease forwards;
+}
+
+
+/* =========================================
+   COMPLETION HEART
+========================================= */
+
+.complete-heart {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation: heartBeat 1.2s infinite;
+}
+
+
+/* =========================================
+   COMPLETION HEADING
+========================================= */
+
+.balloon-complete h3 {
+    margin: 10px 0 15px;
+
+    font-size: 30px;
+
+    color: #d63384;
+}
+
+
+/* =========================================
+   COMPLETION TEXT
+========================================= */
+
+.balloon-complete p {
+    margin: 0 auto 25px;
+
+    max-width: 420px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #555;
+}
+
+
+/* =========================================
+   CELEBRATION ANIMATION
+========================================= */
+
+@keyframes celebrateCard {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+    }
+
+    70% {
+        transform: scale(1.05) translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   HEART ANIMATION
+========================================= */
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
 }
 }
