@@ -74,14 +74,6 @@ window.addEventListener("load", () => {
    Start music on first interaction
 ========================================= */
 
-window.addEventListener("load", () => {
-
-    console.log("🌐 Website loaded");
-
-    startMusic();
-
-});
-
 document.addEventListener(
     "pointerdown",
     () => {
