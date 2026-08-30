@@ -21,7 +21,21 @@ bgMusic.volume = 0.5;
 
 function startMusic() {
 
+    console.log("🎵 startMusic() called");
+
+    if (!bgMusic) {
+        console.log("❌ bgMusic element NOT found");
+        return;
+    }
+
+    console.log("🎵 Audio element found");
+    console.log("🎵 Audio src:", bgMusic.currentSrc);
+    console.log("🎵 Ready state:", bgMusic.readyState);
+    console.log("🎵 Paused:", bgMusic.paused);
+    console.log("🎵 Volume:", bgMusic.volume);
+
     if (musicStarted) {
+        console.log("🎵 Music already started");
         return;
     }
 
@@ -30,18 +44,17 @@ function startMusic() {
 
             musicStarted = true;
 
-            console.log("🎵 Music started successfully");
+            console.log("✅ MUSIC PLAYING");
+            console.log("🎵 Current time:", bgMusic.currentTime);
 
         })
         .catch((error) => {
 
-            console.log(
-                "🎵 Music blocked:",
-                error
-            );
+            console.log("❌ MUSIC PLAY FAILED");
+            console.log("❌ Error:", error.name);
+            console.log("❌ Message:", error.message);
 
         });
-
 }
 
 
@@ -61,9 +74,23 @@ window.addEventListener("load", () => {
    Start music on first interaction
 ========================================= */
 
+window.addEventListener("load", () => {
+
+    console.log("🌐 Website loaded");
+
+    startMusic();
+
+});
+
 document.addEventListener(
     "pointerdown",
-    startMusic,
+    () => {
+
+        console.log("👆 User touched the screen");
+
+        startMusic();
+
+    },
     { once: true }
 );
 
