@@ -1,0 +1,1748 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    background: #08030a;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+.screen {
+
+    width: 100%;
+
+    height: 100vh;
+
+    height: 100svh;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-screen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #351329 0%,
+            #160812 45%,
+            #08030a 100%
+        );
+}
+
+
+.countdown-content {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: fadeIn 1.5s ease;
+}
+
+
+.small-text {
+
+    font-size: clamp(
+        14px,
+        2vw,
+        20px
+    );
+
+    color: #d9b5c8;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+
+.countdown-content h1 {
+
+    font-size: clamp(
+        48px,
+        10vw,
+        110px
+    );
+
+    letter-spacing: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffb6d9,
+            #fff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    margin-left: 12px;
+}
+
+
+.nickname {
+
+    font-size: clamp(
+        18px,
+        3vw,
+        28px
+    );
+
+    margin-top: 5px;
+
+    color: #d7a5bb;
+}
+
+
+.nickname span {
+    color: #ff76ad;
+}
+
+
+.countdown-number {
+
+    font-size: clamp(
+        80px,
+        18vw,
+        180px
+    );
+
+    font-weight: bold;
+
+    margin-top: 30px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 20px #ff4f9a,
+        0 0 50px #ff4f9a;
+
+    animation: countdownPulse 1s ease;
+}
+
+
+.waiting-text {
+
+    color: #a98a9a;
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.particles::before,
+.particles::after {
+
+    content:
+        "✨ ❤️ ✦ ✨ ♡ ✦ ❤️ ✨";
+
+    position: absolute;
+
+    width: 100%;
+
+    color:
+        rgba(
+            255,
+            160,
+            200,
+            0.25
+        );
+
+    font-size: 25px;
+
+    letter-spacing: 50px;
+
+    animation:
+        floatingParticles
+        15s linear infinite;
+}
+
+
+.particles::before {
+    top: 20%;
+}
+
+
+.particles::after {
+
+    top: 70%;
+
+    animation-delay: -7s;
+}
+
+
+/* =========================================
+   BIRTHDAY
+========================================= */
+
+.birthday-screen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #501b38,
+            #200b18 50%,
+            #08030a
+        );
+
+    text-align: center;
+}
+
+
+.birthday-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+
+    padding: 30px;
+
+    animation:
+        birthdayReveal
+        1.5s ease;
+}
+
+
+.cake {
+
+    font-size: clamp(
+        50px,
+        8vw,
+        90px
+    );
+
+    margin-bottom: 20px;
+
+    animation:
+        cakeBounce
+        2s infinite;
+}
+
+
+.hey-text {
+
+    font-size: clamp(
+        18px,
+        3vw,
+        28px
+    );
+
+    color: #ffb6d9;
+
+    margin-bottom: 20px;
+}
+
+
+.birthday-title {
+
+    font-size: clamp(
+        45px,
+        9vw,
+        100px
+    );
+
+    line-height: 0.95;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 20px
+        rgba(
+            255,
+            100,
+            170,
+            0.5
+        );
+}
+
+
+.birthday-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff6da9,
+            #ffd1e3,
+            #ff6da9
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.birthday-lines {
+
+    margin-top: 30px;
+
+    color: #e8c9d8;
+
+    font-size: clamp(
+        15px,
+        2vw,
+        19px
+    );
+
+    line-height: 1.8;
+}
+
+
+.birthday-lines p {
+
+    opacity: 0;
+
+    animation:
+        textAppear
+        1s forwards;
+}
+
+
+.birthday-lines p:nth-child(1) {
+    animation-delay: 1s;
+}
+
+
+.birthday-lines p:nth-child(2) {
+    animation-delay: 2s;
+}
+
+
+.birthday-lines p:nth-child(3) {
+    animation-delay: 3s;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.main-button {
+
+    margin-top: 35px;
+
+    padding: 16px 32px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f98,
+            #ff77b3
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            255,
+            75,
+            150,
+            0.3
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.main-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            255,
+            75,
+            150,
+            0.5
+        );
+}
+
+
+.main-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   PHOTOS
+========================================= */
+
+.photos-screen {
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #321020,
+            #0b0408
+        );
+
+    padding: 20px;
+}
+
+
+.photo-intro {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    animation:
+        fadeIn
+        1s ease;
+}
+
+
+.photo-intro p {
+
+    color: #dca8bf;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.photo-intro h2 {
+
+    font-size: clamp(
+        26px,
+        5vw,
+        55px
+    );
+
+    line-height: 1.1;
+}
+
+
+.photo-intro span {
+    color: #ff78b2;
+}
+
+
+.slider-container {
+
+    width: min(
+        88vw,
+        550px
+    );
+
+    text-align: center;
+}
+
+
+.photo-wrapper {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    max-height: 57vh;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 70px
+        rgba(
+            0,
+            0,
+            0,
+            0.7
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+}
+
+
+.photo-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        opacity 0.8s ease,
+        transform 5s ease;
+
+    animation:
+        photoZoom
+        5s linear infinite;
+}
+
+
+.photo-caption {
+
+    font-size: clamp(
+        15px,
+        2vw,
+        21px
+    );
+
+    color: #ffd3e4;
+
+    margin-top: 15px;
+
+    min-height: 30px;
+
+    animation:
+        fadeIn
+        0.8s ease;
+}
+
+
+.dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+
+.dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.3
+        );
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+
+.dot.active {
+
+    width: 22px;
+
+    border-radius: 10px;
+
+    background: #ff6fa9;
+}
+
+
+.photo-next-button {
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   BALLOON SCREEN
+========================================= */
+
+.balloon-screen {
+
+    background:
+        linear-gradient(
+            180deg,
+            #160716,
+            #351329
+        );
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+.balloon-content {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.balloon-small-title {
+
+    color: #dba7bd;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+
+.balloon-content h2 {
+
+    font-size: clamp(
+        28px,
+        6vw,
+        55px
+    );
+
+    color: #fff;
+
+    margin-bottom: 10px;
+}
+
+
+.balloon-description {
+
+    color: #dcbaca;
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+}
+
+
+.balloon-garden {
+
+    width: 100%;
+
+    max-width: 800px;
+
+    height: 55vh;
+
+    position: relative;
+}
+
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+.balloon {
+
+    position: absolute;
+
+    width: clamp(
+        70px,
+        11vw,
+        110px
+    );
+
+    height: clamp(
+        90px,
+        14vw,
+        140px
+    );
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    filter:
+        drop-shadow(
+            0 10px 15px
+            rgba(
+                0,
+                0,
+                0,
+                0.4
+            )
+        );
+
+    animation:
+        balloonFloat
+        3s ease-in-out infinite;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.3s ease;
+}
+
+
+.balloon:hover {
+
+    transform:
+        scale(1.1);
+}
+
+
+.balloon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 100px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+    top: 95%;
+
+    left: 50%;
+}
+
+
+.balloon.popped {
+
+    animation:
+        balloonPop
+        0.4s
+        forwards;
+
+    pointer-events: none;
+}
+
+
+/* Different balloon positions */
+
+.balloon:nth-child(1) {
+
+    left: 5%;
+
+    top: 15%;
+}
+
+
+.balloon:nth-child(2) {
+
+    left: 27%;
+
+    top: 5%;
+
+    animation-delay: -1s;
+}
+
+
+.balloon:nth-child(3) {
+
+    left: 50%;
+
+    top: 18%;
+
+    animation-delay: -2s;
+}
+
+
+.balloon:nth-child(4) {
+
+    left: 73%;
+
+    top: 7%;
+
+    animation-delay: -0.5s;
+}
+
+
+.balloon:nth-child(5) {
+
+    left: 16%;
+
+    top: 55%;
+
+    animation-delay: -1.5s;
+}
+
+
+.balloon:nth-child(6) {
+
+    left: 40%;
+
+    top: 58%;
+
+    animation-delay: -2.5s;
+}
+
+
+.balloon:nth-child(7) {
+
+    left: 65%;
+
+    top: 52%;
+
+    animation-delay: -1s;
+}
+
+
+.balloon:nth-child(8) {
+
+    left: 84%;
+
+    top: 35%;
+
+    animation-delay: -2s;
+}
+
+
+/* =========================================
+   BALLOON MESSAGE
+========================================= */
+
+.balloon-message {
+
+    min-height: 40px;
+
+    color: #ffd0e2;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+
+    animation:
+        fadeIn
+        0.5s ease;
+}
+
+
+/* =========================================
+   LETTER INTRO
+========================================= */
+
+.letter-intro-screen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #432034,
+            #12050d
+        );
+
+    text-align: center;
+}
+
+
+.letter-intro-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 25px;
+
+    max-width: 650px;
+}
+
+
+.letter-icon {
+
+    font-size: 80px;
+
+    animation:
+        heartBeat
+        2s infinite;
+}
+
+
+.letter-intro-content p {
+
+    color: #dcbaca;
+
+    font-size: 18px;
+
+    margin-top: 20px;
+}
+
+
+.letter-intro-content h2 {
+
+    font-size: clamp(
+        35px,
+        7vw,
+        70px
+    );
+
+    line-height: 1.1;
+
+    margin-top: 15px;
+
+    color: #ff91bd;
+}
+
+
+/* =========================================
+   FLOWERS
+========================================= */
+
+.garden {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.flower {
+
+    position: absolute;
+
+    font-size: 50px;
+
+    opacity: 0.6;
+
+    animation:
+        flowerFloat
+        5s ease-in-out infinite;
+}
+
+
+.flower1 {
+    left: 10%;
+    top: 20%;
+}
+
+
+.flower2 {
+    right: 10%;
+    top: 15%;
+}
+
+
+.flower3 {
+    left: 5%;
+    bottom: 20%;
+}
+
+
+.flower4 {
+    right: 5%;
+    bottom: 25%;
+}
+
+
+.flower5 {
+    left: 45%;
+    bottom: 5%;
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter-screen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #321423,
+            #090309
+        );
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    align-items: flex-start;
+}
+
+
+.letter-paper {
+
+    width: min(
+        92vw,
+        700px
+    );
+
+    margin:
+        40px auto;
+
+    padding: clamp(
+        30px,
+        6vw,
+        55px
+    );
+
+    background:
+        rgba(
+            255,
+            244,
+            248,
+            0.97
+        );
+
+    color: #482737;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 20px 70px
+        rgba(
+            0,
+            0,
+            0,
+            0.6
+        );
+
+    text-align: center;
+
+    animation:
+        letterOpen
+        1s ease;
+}
+
+
+.letter-decoration {
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+
+.letter-paper h2 {
+
+    font-size: clamp(
+        30px,
+        6vw,
+        50px
+    );
+
+    color: #c94379;
+
+    margin-bottom: 30px;
+}
+
+
+.letter-text {
+
+    text-align: left;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        16px,
+        2vw,
+        19px
+    );
+
+    line-height: 1.9;
+}
+
+
+.letter-text p {
+
+    margin-bottom: 22px;
+}
+
+
+.letter-signature {
+
+    text-align: center;
+
+    font-size: 35px;
+}
+
+
+.letter-birthday {
+
+    text-align: center;
+
+    color: #c94379;
+
+    font-weight: bold;
+
+    font-size: 24px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-screen {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #5b193c 0%,
+            #200817 50%,
+            #08030a 100%
+        );
+
+    text-align: center;
+}
+
+
+.final-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 700px;
+
+    padding: 30px;
+
+    animation:
+        finalReveal
+        2s ease;
+}
+
+
+.final-heart {
+
+    font-size: 80px;
+
+    animation:
+        heartBeat
+        1.5s infinite;
+}
+
+
+.final-content > p {
+
+    color: #d9aabd;
+
+    font-size: 20px;
+
+    margin-top: 20px;
+}
+
+
+.final-content h1 {
+
+    font-size: clamp(
+        50px,
+        10vw,
+        100px
+    );
+
+    margin: 10px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff8fbd,
+            #fff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.final-content h2 {
+
+    font-size: clamp(
+        25px,
+        5vw,
+        45px
+    );
+
+    color: #ff80b4;
+}
+
+
+.final-message {
+
+    max-width: 500px;
+
+    margin: 25px auto !important;
+
+    line-height: 1.7;
+}
+
+
+.final-cake {
+
+    font-size: 50px;
+
+    margin-top: 25px;
+}
+
+
+.forever {
+
+    color: #ffb1cf !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes countdownPulse {
+
+    0% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes birthdayReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes cakeBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+@keyframes floatingParticles {
+
+    from {
+        transform: translateX(-10%);
+    }
+
+    to {
+        transform: translateX(10%);
+    }
+
+}
+
+
+@keyframes photoZoom {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+
+}
+
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+}
+
+
+@keyframes balloonPop {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+}
+
+
+@keyframes letterOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .countdown-content h1 {
+        letter-spacing: 6px;
+    }
+
+
+    .birthday-content {
+        padding: 20px;
+    }
+
+
+    .birthday-lines {
+        line-height: 1.6;
+    }
+
+
+    .main-button {
+
+        padding:
+            14px
+            26px;
+
+        font-size: 15px;
+    }
+
+
+    .photos-screen {
+        padding: 15px;
+    }
+
+
+    .photo-wrapper {
+        border-radius: 18px;
+    }
+
+
+    .balloon-garden {
+        height: 52vh;
+    }
+
+
+    .balloon:nth-child(1) {
+        left: 2%;
+    }
+
+
+    .balloon:nth-child(4) {
+        left: 68%;
+    }
+
+
+    .balloon:nth-child(5) {
+        left: 8%;
+    }
+
+
+    .balloon:nth-child(7) {
+        left: 58%;
+    }
+
+
+    .balloon:nth-child(8) {
+        left: 75%;
+    }
+
+
+    .letter-paper {
+        margin-top: 20px;
+    }
+
+
+    .letter-text {
+        line-height: 1.7;
+    }
+
+}
+
+
+/* =========================================
+   SMALL HEIGHT PHONES
+========================================= */
+
+@media (max-height: 700px) {
+
+    .cake {
+
+        font-size: 45px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .birthday-lines {
+        margin-top: 15px;
+    }
+
+
+    .birthday-lines p {
+        margin-bottom: 5px;
+    }
+
+
+    .main-button {
+        margin-top: 20px;
+    }
+
+
+    .photo-intro {
+        margin-bottom: 10px;
+    }
+
+
+    .photo-wrapper {
+        max-height: 48vh;
+    }
+
+
+    .balloon-garden {
+        height: 45vh;
+    }
+/* =========================================
+   BALLOON COMPLETION
+========================================= */
+
+.balloon-complete {
+
+    max-width: 500px;
+
+    margin: 30px auto 0;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    animation:
+        balloonCompleteIn
+        0.8s ease forwards;
+
+}
+
+
+.complete-heart {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    animation:
+        heartBeat
+        1.2s ease-in-out infinite;
+
+}
+
+
+.balloon-complete h3 {
+
+    font-size: 28px;
+
+    margin: 10px 0 15px;
+
+}
+
+
+.balloon-complete p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================
+   COMPLETION ANIMATION
+========================================= */
+
+@keyframes balloonCompleteIn {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.9);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .balloon-complete {
+
+        padding:
+            25px 18px;
+
+        margin-top: 20px;
+
+    }
+
+
+    .complete-heart {
+
+        font-size: 45px;
+
+    }
+
+
+    .balloon-complete h3 {
+
+        font-size: 24px;
+
+    }
+
+
+    .balloon-complete p {
+
+        font-size: 15px;
+
+    }
+
+}
+}
