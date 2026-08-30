@@ -1,6 +1,71 @@
 /* =========================================
    ELEMENTS
 ========================================= */
+/* =========================================
+   BACKGROUND MUSIC
+========================================= */
+/* =========================================
+   BACKGROUND MUSIC
+========================================= */
+
+const bgMusic = document.getElementById("bgMusic");
+
+let musicStarted = false;
+
+bgMusic.volume = 0.5;
+
+
+/* =========================================
+   START MUSIC
+========================================= */
+
+function startMusic() {
+
+    if (musicStarted) {
+        return;
+    }
+
+    bgMusic.play()
+        .then(() => {
+
+            musicStarted = true;
+
+            console.log("🎵 Music started successfully");
+
+        })
+        .catch((error) => {
+
+            console.log(
+                "🎵 Music blocked:",
+                error
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   TRY AUTOPLAY
+========================================= */
+
+window.addEventListener("load", () => {
+
+    startMusic();
+
+});
+
+
+/* =========================================
+   MOBILE FALLBACK
+   Start music on first interaction
+========================================= */
+
+document.addEventListener(
+    "pointerdown",
+    startMusic,
+    { once: true }
+);
 
 
 /* ---------- Screens ---------- */
