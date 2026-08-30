@@ -4,88 +4,129 @@
 /* =========================================
    BACKGROUND MUSIC
 ========================================= */
-/* =========================================
-   BACKGROUND MUSIC
-========================================= */
 
 const bgMusic = document.getElementById("bgMusic");
 
 let musicStarted = false;
 
-bgMusic.volume = 0.5;
+if (bgMusic) {
 
-
-/* =========================================
-   START MUSIC
-========================================= */
-
-function startMusic() {
-
-    console.log("🎵 startMusic() called");
-
-    if (!bgMusic) {
-        console.log("❌ bgMusic element NOT found");
-        return;
-    }
+    bgMusic.volume = 0.5;
 
     console.log("🎵 Audio element found");
-    console.log("🎵 Audio src:", bgMusic.currentSrc);
-    console.log("🎵 Ready state:", bgMusic.readyState);
-    console.log("🎵 Paused:", bgMusic.paused);
-    console.log("🎵 Volume:", bgMusic.volume);
+    console.log("🎵 Audio source:", bgMusic.currentSrc);
 
-    if (musicStarted) {
-        console.log("🎵 Music already started");
-        return;
+
+    /* =========================================
+       START MUSIC
+    ========================================= */
+
+    function startMusic() {
+
+        console.log("🎵 startMusic() called");
+
+        if (musicStarted) {
+
+            console.log("🎵 Music already playing");
+
+            return;
+
+        }
+
+        if (!bgMusic) {
+
+            console.log("❌ Audio element not found");
+
+            return;
+
+        }
+
+
+        console.log("🎵 Trying to play music...");
+
+
+        const playPromise = bgMusic.play();
+
+
+        if (playPromise !== undefined) {
+
+            playPromise
+                .then(() => {
+
+                    musicStarted = true;
+
+                    console.log("✅ MUSIC PLAYING");
+                    console.log(
+                        "🎵 Current time:",
+                        bgMusic.currentTime
+                    );
+
+                })
+                .catch((error) => {
+
+                    console.log(
+                        "❌ MUSIC PLAY FAILED"
+                    );
+
+                    console.log(
+                        "❌ Error:",
+                        error.name
+                    );
+
+                    console.log(
+                        "❌ Message:",
+                        error.message
+                    );
+
+                });
+
+        }
+
     }
 
-    bgMusic.play()
-        .then(() => {
 
-            musicStarted = true;
+    /* =========================================
+       TRY AUTOPLAY
+       Desktop may allow this.
+       Mobile may block it.
+    ========================================= */
 
-            console.log("✅ MUSIC PLAYING");
-            console.log("🎵 Current time:", bgMusic.currentTime);
+    window.addEventListener(
+        "load",
+        () => {
 
-        })
-        .catch((error) => {
+            console.log(
+                "🌐 Page loaded - trying autoplay"
+            );
 
-            console.log("❌ MUSIC PLAY FAILED");
-            console.log("❌ Error:", error.name);
-            console.log("❌ Message:", error.message);
+            startMusic();
 
-        });
+        }
+    );
+
+
+    /* =========================================
+       MOBILE FALLBACK
+       Any user interaction can start music.
+    ========================================= */
+
+    document.addEventListener(
+        "pointerdown",
+        () => {
+
+            console.log(
+                "👆 User interaction detected"
+            );
+
+            startMusic();
+
+        },
+        {
+            once: false
+        }
+    );
+
 }
-
-
-/* =========================================
-   TRY AUTOPLAY
-========================================= */
-
-window.addEventListener("load", () => {
-
-    startMusic();
-
-});
-
-
-/* =========================================
-   MOBILE FALLBACK
-   Start music on first interaction
-========================================= */
-
-document.addEventListener(
-    "pointerdown",
-    () => {
-
-        console.log("👆 User touched the screen");
-
-        startMusic();
-
-    },
-    { once: true }
-);
-
 
 /* ---------- Screens ---------- */
 
@@ -585,6 +626,20 @@ function stopSlider() {
 celebrateBtn.addEventListener(
     "click",
     () => {
+
+        console.log(
+            "🎉 Let's Celebrate clicked"
+        );
+
+
+        /* =====================================
+           START MUSIC HERE
+           This is a real user interaction,
+           so Android Chrome should allow it.
+        ===================================== */
+
+        startMusic();
+
 
         /*
             Hide birthday screen
